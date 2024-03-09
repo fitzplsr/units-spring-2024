@@ -1,6 +1,6 @@
 import math
 import unittest
-from src.calculator import Calculator
+from calculator import Calculator
 
 
 class TestCalculator(unittest.TestCase):
@@ -10,6 +10,7 @@ class TestCalculator(unittest.TestCase):
 
     def test_add(self):
         self.assertEqual(self.calculator.addition(1, 2), 3)
+        self.assertEqual(self.calculator.addition(2, 2), 4)
 
     def test_mul(self):
         self.assertEqual(self.calculator.multiplication(1, 2), 2)
