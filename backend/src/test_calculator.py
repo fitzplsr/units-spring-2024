@@ -1,3 +1,4 @@
+import math
 import unittest
 from calculator import Calculator
 
@@ -17,22 +18,27 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.calculator.subtraction(2, 2), 0)
 
     def test_div(self):
-        self.assertEqual(self.calculator.division(2, 2), 1)
+        self.assertEqual(self.calculator.division(8, 2), 4)
+        self.assertIsNone(self.calculator.division(8, 0))
 
     def test_abs(self):
-        self.assertEqual(self.calculator.adsolute(-2), 2)
+        self.assertEqual(self.calculator.adsolute(-5), 5)
+        self.assertEqual(self.calculator.adsolute(5), 5)
 
     def test_degree(self):
-        self.assertEqual(self.calculator.degree(2, 2), 4)
+        self.assertEqual(self.calculator.degree(2, 3), 8)
 
-    # def test_ln(self):
-    #     self.assertEqual(self.calculator.ln(0), 1)
-    #
-    # def test_log(self):
-    #     self.assertEqual(self.calculator.log(2, 0), 1)
+    def test_ln(self):
+        self.assertAlmostEqual(self.calculator.ln(math.e), 1)
+
+    def test_log(self):
+        self.assertAlmostEqual(self.calculator.log(100, 10), 2)
 
     def test_sqrt(self):
-        self.assertEqual(self.calculator.sqrt(1), 1)
+        self.assertAlmostEqual(self.calculator.sqrt(9), 3)
+
+    def test_nth_root(self):
+        self.assertAlmostEqual(self.calculator.nth_root(8, 3), 2)
 
 
 if __name__ == "__main__":
